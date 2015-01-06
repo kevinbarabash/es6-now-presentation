@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
   font-weight: 100;
   color: #333333;
   background: #FFFFFF;
@@ -81,7 +81,7 @@ ul {
   max-height: 800px;
   max-width: 1200px;*/
   margin: 0 auto;
-  padding: 30px;
+  padding: 30px 120px;
 }
 
 .title .slide-content {
@@ -150,4 +150,24 @@ ul {
   max-height: 400px;
   margin: 20px auto;
   display: table-cell;
+}
+
+#slide-2 {
+  background: url('img/sponsors/assembly_logo.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+pre {
+  font-size: 100%;
+  background-color: rgb(226,226,226);
+}
+
+code {
+  font-size: 125%;
+  background-color: rgb(226,226,226);
+}
+
+h1 code {
+  background-color: transparent;
+  border: none;
 }

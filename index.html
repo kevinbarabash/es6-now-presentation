@@ -402,9 +402,10 @@ pre .chunk {
 }
 
 body {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
   font-weight: 100;
   color: #333333;
+  background: #FFFFFF;
 }
 
 h1 {
@@ -425,6 +426,14 @@ h3 {
 
 p {
   font-weight: 100;
+}
+
+h1, h2, h3, h4, h5, p, ul {
+  margin: 10px 0;
+}
+
+ul {
+  padding: 20px 0 20px 60px;
 }
 
 .progress-bar {
@@ -468,7 +477,17 @@ p {
   max-height: 800px;
   max-width: 1200px;*/
   margin: 0 auto;
-  padding: 30px;
+  padding: 30px 120px;
+}
+
+.title .slide-content {
+  display: table;
+}
+
+.title h1 {
+  display: table-cell; 
+  vertical-align: middle;
+  z-index: 10;
 }
 
 .presenter img {
@@ -506,6 +525,10 @@ p {
   padding: 0 10px;
 }
 
+.sponsors h1 {
+  margin: 20px 0 40px 0;
+}
+
 .sponsors p {
   float: left;
   text-align: center;
@@ -516,6 +539,33 @@ p {
 .sponsors p > img {
   width: 100%;
   max-width: 240px;
+}
+
+.image p > img {
+  max-width: 600px;
+  max-height: 400px;
+  margin: 20px auto;
+  display: table-cell;
+}
+
+#slide-2 {
+  background: url('img/sponsors/assembly_logo.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+pre {
+  font-size: 100%;
+  background-color: rgb(226,226,226);
+}
+
+code {
+  font-size: 125%;
+  background-color: rgb(226,226,226);
+}
+
+h1 code {
+  background-color: transparent;
+  border: none;
 }
   </style>
 </head>
@@ -533,11 +583,16 @@ p {
 <p>Maybe even Chris Rock</p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-2">
-    <section class="slide-content"><h1 id="brought-to-you-by">Brought to you by</h1>
+  <div class="slide hidden  title" id="slide-2">
+    <section class="slide-content"><h1 id="es6-today-">ES6 Today!</h1>
 </section>
   </div>
-  <div class="slide hidden  presenter" id="slide-3">
+  <div class="slide hidden  image" id="slide-3">
+    <section class="slide-content"><p><img src="https://github.global.ssl.fastly.net/images/modules/logos_page/GitHub-Logo.png" width="50%"></p>
+<h1 id="brought-to-you-by">Brought to you by</h1>
+</section>
+  </div>
+  <div class="slide hidden  presenter" id="slide-4">
     <section class="slide-content"><p><img src="http://gravatar.com/avatar/a14850281f19396480bdba4aab2d52ef?s=200" alt="David Luecke"></p>
 <h2 id="david-luecke">David Luecke</h2>
 <ul>
@@ -546,17 +601,153 @@ p {
 </ul>
 </section>
   </div>
-  <div class="slide hidden  presenter" id="slide-4">
-    <section class="slide-content"><p><img src="http://gravatar.com/avatar/23aba778a7daae99348aeb0728cf4aec?s=200" alt="Eric Kryski"></p>
-<h2 id="eric-kryski">Eric Kryski</h2>
+  <div class="slide hidden  presenter" id="slide-5">
+    <section class="slide-content"><p><img src="http://www.gravatar.com/avatar/de8cd250d9fe39b78f1c0f98b718670d.png?s=200" alt="Kevin Barabash"></p>
+<h2 id="kevin-barabash">Kevin Barabash</h2>
 <ul>
-<li><a href="https://github.com/ekryski"><i class="fa fa-github"></i> ekryski</a></li>
-<li><a href="http://twitter.com/ekryski"><i class="fa fa-twitter"></i> @ekryski</a></li>
-<li><a href="http://erickryski.com"><i class="fa fa-home"></i> erickryski.com</a></li>
+<li><a href="https://github.com/kevinb7"><i class="fa fa-github"></i> kevinb7</a></li>
 </ul>
 </section>
   </div>
-  <div class="slide hidden  sponsors" id="slide-5">
+  <div class="slide hidden" id="slide-6">
+    <section class="slide-content"><h1 id="es6-">ES6?</h1>
+<p>ES6 = ECMAScript 6 = next version of JavaScript</p>
+<p>ES6 brings tonnes of exciting new features, some of which you may already be 
+familiar with from other languages.  These include:</p>
+<ul>
+<li>new class syntax</li>
+<li>modules</li>
+<li>arrow functions</li>
+<li>(weak)map, (weak)set</li>
+<li>rest parameters</li>
+<li>block scoping</li>
+<li>constants</li>
+<li>...</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-7">
+    <section class="slide-content"><h1 id="classes">Classes</h1>
+<p>TODO: add badges for ES5 and ES6</p>
+<pre><code>function Shape(color) { ... }
+Shape.prototype.draw = function () { ... };
+
+function Rectangle(color, width, height) { 
+    Shape.call(this, color);
+    ...
+}
+Rectangle.prototype = Object.create(Shape.prototype);
+Rectangle.prototype.constructor = Rectangle;
+
+Rectangle.prototype.draw = function () { ... };
+Rectangle.redRectangle = function (width, height) { ... };</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-8">
+    <section class="slide-content"><h1 id="classes">Classes</h1>
+<pre><code>class Shape {
+    constructor(color) { ... }
+    draw() { ... }
+}
+
+class Rectangle extends Shape {
+    constructor(color, width, height) {
+        super(color);
+        ...
+    }
+    draw() { ... }
+    static redRectangle(width, height) { ... }
+}</code></pre>
+<p>Static methods are called the same way, <code>Rectangle.redRectangle(5,10);</code>.  The
+<code>prototype</code> is still there if you want to modify the class after defining it.</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-9">
+    <section class="slide-content"><h1 id="getters-setters">Getters/Setters</h1>
+<pre><code>Object.defineProperty(Rectangle.prototype, &quot;border&quot;, {
+    get: function () {
+        return this.thickness + &quot; &quot; + this.color;
+    },
+    set: function (value) {
+        // parse value and set data members
+    }
+});</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-10">
+    <section class="slide-content"><h1 id="getters-setters">Getters/Setters</h1>
+<pre><code>class Rectangle extends Shape {
+    ...
+    get border() {
+        return this.thickness + &quot; &quot; + this.color;
+    }
+    set border(value) {
+        // parse value and set data members
+    }
+    ...
+}</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-11">
+    <section class="slide-content"><h1 id="modules">Modules</h1>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-12">
+    <section class="slide-content"><h1 id="modules">Modules</h1>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-13">
+    <section class="slide-content"><h1 id="binding-this-">Binding <code>this</code></h1>
+<pre><code>var numbers = [1,2,3,4,...];
+var sum = numbers.reduce(function (total, number) {
+    return total + number;
+});
+
+Calendar.prototype.showMonth = function (month) {
+    var self = this;
+    month.days.forEach(function (day) {
+        day.addEventListener(&quot;click&quot;, function () {
+            self.addAppointmentFor(day);
+        });
+    });
+};</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-14">
+    <section class="slide-content"><h1 id="binding-this-">Binding <code>this</code></h1>
+<pre><code>var numbers = [1,2,3,4,...];
+var sum = numbers.reduce((total, number) =&gt; total + number);
+
+Calendar.prototype.showMonth = function (month) {
+    month.days.forEach(day =&gt; {
+        day.addEventListener(&quot;click&quot;, () =&gt; {
+            this.addAppointMentFor(day);
+        });
+    });
+};</code></pre>
+<p>Arrow functions automatically bind <code>this</code> correctly.  No more <code>self = this;</code> or 
+<code>this.method.bind(this);</code> or <code>$.proxy(this.method,this);</code>.  Also, notice the 
+lack of <code>return</code> statements whent the <code>=&gt;</code> points to a single expression.</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-15">
+    <section class="slide-content"><h1 id="status-of-es6">Status of ES6</h1>
+<p>Currently, most browsers fully support ES5.  All the major browser vendors are
+working on implementing various parts of ES6.</p>
+<p>Browsers (by number of features implemented):</p>
+<ul>
+<li>IE Tech Preview: 70%</li>
+<li>Firefox 36: 67%</li>
+<li>Chrome 40: ~56%</li>
+<li>Safari 8: 23%</li>
+</ul>
+<p>Source: <a href="http://kangax.github.io/compat-table/es6/">Kangax ES6 Compatability table</a></p>
+<p>More info:
+<a href="https://status.modern.ie">https://status.modern.ie</a>,
+<a href="https://www.chromestatus.com/features">https://www.chromestatus.com/features</a></p>
+</section>
+  </div>
+  <div class="slide hidden  sponsors" id="slide-16">
     <section class="slide-content"><h1 id="our-sponsors">Our Sponsors</h1>
 <p><img src="img/sponsors/assembly_logo.png" alt="Assembly"></p>
 <p><img src="img/sponsors/village_brewery_logo.png" alt="Village Brewery"></p>
@@ -564,7 +755,7 @@ p {
 <p><img src="img/sponsors/petrofeed_logo.png" alt="PetroFeed"></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-6">
+  <div class="slide hidden" id="slide-17">
     <section class="slide-content"><h1 id="last-month">Last Month</h1>
 <ul>
 <li>Something awesome</li>
@@ -572,7 +763,7 @@ p {
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-7">
+  <div class="slide hidden" id="slide-18">
     <section class="slide-content"><h1 id="next-month">Next Month</h1>
 <ul>
 <li>Something awesome</li>
@@ -582,7 +773,6 @@ p {
   </div>
 
 
-  <img src="theme&#x2F;logo.png" alt="YYC.js logo" class="logo">
   <script type="text/javascript">
     /**
  * Returns the current page number of the presentation.
