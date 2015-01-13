@@ -152,10 +152,10 @@ ul {
   display: table-cell;
 }
 
-#slide-2 {
-  background: url('img/sponsors/assembly_logo.png') no-repeat center center fixed;
-  background-size: cover;
-}
+/*#slide-2 {*/
+  /*background: url('img/sponsors/assembly_logo.png') no-repeat center center fixed;*/
+  /*background-size: cover;*/
+/*}*/
 
 pre {
   font-size: 100%;

@@ -30,15 +30,6 @@ Maybe even Chris Rock
 
 -- presenter
 
-![David Luecke](http://gravatar.com/avatar/a14850281f19396480bdba4aab2d52ef?s=200)
-
-## David Luecke
-
-* [<i class="fa fa-github"></i> daffl](https://github.com/daffl)
-* [<i class="fa fa-twitter"></i> @daffl](http://twitter.com/daffl)
-
--- presenter
-
 ![Kevin Barabash](http://www.gravatar.com/avatar/de8cd250d9fe39b78f1c0f98b718670d.png?s=200)
 
 ## Kevin Barabash
@@ -133,6 +124,44 @@ Static methods are called the same way, `Rectangle.redRectangle(5,10);`.  The
 
 --
 
+# MVC
+
+    var DocumentRow = Backbone.View.extend({
+        tagName: "li",
+        className: "document-row",
+        events: {
+            "click .icon":          "open",
+            "click .button.edit":   "openEditDialog",
+            "click .button.delete": "destroy"
+        },
+        initialize: function() {
+            this.listenTo(this.model, "change", this.render);
+        },
+        render: function() { ... }
+    });
+
+--
+
+# MVC
+
+    class DocumentRow extends Backbone.View {
+        constructor() {
+            this.tagName = "li";
+            this.className = "document-row";
+            this.events = {
+                "click .icon":          "open",
+                "click .button.edit":   "openEditDialog",
+                "click .button.delete": "destroy"
+            };
+        }
+        initialize: function() {
+            this.listenTo(this.model, "change", this.render);
+        }
+        render: function() { ... }
+    };
+
+-- 
+
 # Modules
 
 --
@@ -171,6 +200,35 @@ Static methods are called the same way, `Rectangle.redRectangle(5,10);`.  The
             });
         });
     };
+
+-- 
+
+# Destructuring
+
+    var point = [1.5, -7, 23];
+    var [x, y, z] = point;
+    console.log("point @ (%f, %f, %f)", x, y, z);
+    
+    var range = [10, -5];
+    var [min, max] = range;
+    if (min > max) {
+        [max, min] = [min, max];
+    }
+    console.log("range = %o", range);
+
+--
+
+# Rest paramters
+
+
+--
+
+# Default parameters
+
+
+--
+
+    
     
 Arrow functions automatically bind `this` correctly.  No more `self = this;` or 
 `this.method.bind(this);` or `$.proxy(this.method,this);`.  Also, notice the 

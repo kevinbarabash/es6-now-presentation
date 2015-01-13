@@ -548,10 +548,10 @@ ul {
   display: table-cell;
 }
 
-#slide-2 {
-  background: url('img/sponsors/assembly_logo.png') no-repeat center center fixed;
-  background-size: cover;
-}
+/*#slide-2 {*/
+  /*background: url('img/sponsors/assembly_logo.png') no-repeat center center fixed;*/
+  /*background-size: cover;*/
+/*}*/
 
 pre {
   font-size: 100%;
@@ -593,15 +593,6 @@ h1 code {
 </section>
   </div>
   <div class="slide hidden  presenter" id="slide-4">
-    <section class="slide-content"><p><img src="http://gravatar.com/avatar/a14850281f19396480bdba4aab2d52ef?s=200" alt="David Luecke"></p>
-<h2 id="david-luecke">David Luecke</h2>
-<ul>
-<li><a href="https://github.com/daffl"><i class="fa fa-github"></i> daffl</a></li>
-<li><a href="http://twitter.com/daffl"><i class="fa fa-twitter"></i> @daffl</a></li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden  presenter" id="slide-5">
     <section class="slide-content"><p><img src="http://www.gravatar.com/avatar/de8cd250d9fe39b78f1c0f98b718670d.png?s=200" alt="Kevin Barabash"></p>
 <h2 id="kevin-barabash">Kevin Barabash</h2>
 <ul>
@@ -609,7 +600,7 @@ h1 code {
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-6">
+  <div class="slide hidden" id="slide-5">
     <section class="slide-content"><h1 id="es6-">ES6?</h1>
 <p>ES6 = ECMAScript 6 = next version of JavaScript</p>
 <p>ES6 brings tonnes of exciting new features, some of which you may already be 
@@ -626,7 +617,7 @@ familiar with from other languages.  These include:</p>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-7">
+  <div class="slide hidden" id="slide-6">
     <section class="slide-content"><h1 id="classes">Classes</h1>
 <p>TODO: add badges for ES5 and ES6</p>
 <pre><code>function Shape(color) { ... }
@@ -643,7 +634,7 @@ Rectangle.prototype.draw = function () { ... };
 Rectangle.redRectangle = function (width, height) { ... };</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-8">
+  <div class="slide hidden" id="slide-7">
     <section class="slide-content"><h1 id="classes">Classes</h1>
 <pre><code>class Shape {
     constructor(color) { ... }
@@ -662,7 +653,7 @@ class Rectangle extends Shape {
 <code>prototype</code> is still there if you want to modify the class after defining it.</p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-9">
+  <div class="slide hidden" id="slide-8">
     <section class="slide-content"><h1 id="getters-setters">Getters/Setters</h1>
 <pre><code>Object.defineProperty(Rectangle.prototype, &quot;border&quot;, {
     get: function () {
@@ -674,7 +665,7 @@ class Rectangle extends Shape {
 });</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-10">
+  <div class="slide hidden" id="slide-9">
     <section class="slide-content"><h1 id="getters-setters">Getters/Setters</h1>
 <pre><code>class Rectangle extends Shape {
     ...
@@ -688,15 +679,51 @@ class Rectangle extends Shape {
 }</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-11">
-    <section class="slide-content"><h1 id="modules">Modules</h1>
+  <div class="slide hidden" id="slide-10">
+    <section class="slide-content"><h1 id="mvc">MVC</h1>
+<pre><code>var DocumentRow = Backbone.View.extend({
+    tagName: &quot;li&quot;,
+    className: &quot;document-row&quot;,
+    events: {
+        &quot;click .icon&quot;:          &quot;open&quot;,
+        &quot;click .button.edit&quot;:   &quot;openEditDialog&quot;,
+        &quot;click .button.delete&quot;: &quot;destroy&quot;
+    },
+    initialize: function() {
+        this.listenTo(this.model, &quot;change&quot;, this.render);
+    },
+    render: function() { ... }
+});</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-12">
+  <div class="slide hidden" id="slide-11">
+    <section class="slide-content"><h1 id="mvc">MVC</h1>
+<pre><code>class DocumentRow extends Backbone.View {
+    constructor() {
+        this.tagName = &quot;li&quot;;
+        this.className = &quot;document-row&quot;;
+        this.events = {
+            &quot;click .icon&quot;:          &quot;open&quot;,
+            &quot;click .button.edit&quot;:   &quot;openEditDialog&quot;,
+            &quot;click .button.delete&quot;: &quot;destroy&quot;
+        };
+    }
+    initialize: function() {
+        this.listenTo(this.model, &quot;change&quot;, this.render);
+    }
+    render: function() { ... }
+};</code></pre>
+</section>
+  </div>
+  <div class="slide hidden  " id="slide-12">
     <section class="slide-content"><h1 id="modules">Modules</h1>
 </section>
   </div>
   <div class="slide hidden" id="slide-13">
+    <section class="slide-content"><h1 id="modules">Modules</h1>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-14">
     <section class="slide-content"><h1 id="binding-this-">Binding <code>this</code></h1>
 <pre><code>var numbers = [1,2,3,4,...];
 var sum = numbers.reduce(function (total, number) {
@@ -713,7 +740,7 @@ Calendar.prototype.showMonth = function (month) {
 };</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-14">
+  <div class="slide hidden" id="slide-15">
     <section class="slide-content"><h1 id="binding-this-">Binding <code>this</code></h1>
 <pre><code>var numbers = [1,2,3,4,...];
 var sum = numbers.reduce((total, number) =&gt; total + number);
@@ -725,12 +752,37 @@ Calendar.prototype.showMonth = function (month) {
         });
     });
 };</code></pre>
-<p>Arrow functions automatically bind <code>this</code> correctly.  No more <code>self = this;</code> or 
+</section>
+  </div>
+  <div class="slide hidden  " id="slide-16">
+    <section class="slide-content"><h1 id="destructuring">Destructuring</h1>
+<pre><code>var point = [1.5, -7, 23];
+var [x, y, z] = point;
+console.log(&quot;point @ (%f, %f, %f)&quot;, x, y, z);
+
+var range = [10, -5];
+var [min, max] = range;
+if (min &gt; max) {
+    [max, min] = [min, max];
+}
+console.log(&quot;range = %o&quot;, range);</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-17">
+    <section class="slide-content"><h1 id="rest-paramters">Rest paramters</h1>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-18">
+    <section class="slide-content"><h1 id="default-parameters">Default parameters</h1>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-19">
+    <section class="slide-content"><p>Arrow functions automatically bind <code>this</code> correctly.  No more <code>self = this;</code> or 
 <code>this.method.bind(this);</code> or <code>$.proxy(this.method,this);</code>.  Also, notice the 
 lack of <code>return</code> statements whent the <code>=&gt;</code> points to a single expression.</p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-15">
+  <div class="slide hidden" id="slide-20">
     <section class="slide-content"><h1 id="status-of-es6">Status of ES6</h1>
 <p>Currently, most browsers fully support ES5.  All the major browser vendors are
 working on implementing various parts of ES6.</p>
@@ -747,7 +799,7 @@ working on implementing various parts of ES6.</p>
 <a href="https://www.chromestatus.com/features">https://www.chromestatus.com/features</a></p>
 </section>
   </div>
-  <div class="slide hidden  sponsors" id="slide-16">
+  <div class="slide hidden  sponsors" id="slide-21">
     <section class="slide-content"><h1 id="our-sponsors">Our Sponsors</h1>
 <p><img src="img/sponsors/assembly_logo.png" alt="Assembly"></p>
 <p><img src="img/sponsors/village_brewery_logo.png" alt="Village Brewery"></p>
@@ -755,7 +807,7 @@ working on implementing various parts of ES6.</p>
 <p><img src="img/sponsors/petrofeed_logo.png" alt="PetroFeed"></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-17">
+  <div class="slide hidden" id="slide-22">
     <section class="slide-content"><h1 id="last-month">Last Month</h1>
 <ul>
 <li>Something awesome</li>
@@ -763,7 +815,7 @@ working on implementing various parts of ES6.</p>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-18">
+  <div class="slide hidden" id="slide-23">
     <section class="slide-content"><h1 id="next-month">Next Month</h1>
 <ul>
 <li>Something awesome</li>
