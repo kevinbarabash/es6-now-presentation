@@ -4,37 +4,32 @@ theme: theme
 controls: false
 logo: theme/logo.png
 
---
+-- title
 
-# YYC.js Presents:
-
-## An Epic Slide Template
-
-### That totally kicks some ass
-
-#### Kind of like Chuck Norris
-
-##### And Jackie Chan
-
-Maybe even Chris Rock
+# YYC.js Presents
 
 -- title
 
-# ES6 Today!
-
--- image
-
-<img src="https://github.global.ssl.fastly.net/images/modules/logos_page/GitHub-Logo.png" width="50%">
-
-# Brought to you by
+# ES6 Now!
 
 -- presenter
 
-![Kevin Barabash](http://www.gravatar.com/avatar/de8cd250d9fe39b78f1c0f98b718670d.png?s=200)
+![Kevin Barabash](img/iambuildingaworldforyou.gif)
 
 ## Kevin Barabash
 
-* [<i class="fa fa-github"></i> kevinb7](https://github.com/kevinb7)
+- [<i class="fa fa-github"></i> kevinb7](https://github.com/kevinb7)
+
+--
+
+# Agenda
+
+- What is ES6?
+- ES6 in action (demo)
+- Status of ES6
+- Tooling
+- Gotchas
+- Questions
 
 --
 
@@ -45,194 +40,19 @@ ES6 = ECMAScript 6 = next version of JavaScript
 ES6 brings tonnes of exciting new features, some of which you may already be 
 familiar with from other languages.  These include:
 
-- new class syntax
-- modules
+- string templating, multi-line strings
+- default, rest paramters
 - arrow functions
+- new class syntax and modules
+- destructuring assignment
 - (weak)map, (weak)set
-- rest parameters
-- block scoping
-- constants
+- constants, block scoping via "let" keyword
+- iterators, generators, promises
 - ...
 
---
+-- title
 
-# Classes
-
-TODO: add badges for ES5 and ES6
-
-    function Shape(color) { ... }
-    Shape.prototype.draw = function () { ... };
-    
-    function Rectangle(color, width, height) { 
-        Shape.call(this, color);
-        ...
-    }
-    Rectangle.prototype = Object.create(Shape.prototype);
-    Rectangle.prototype.constructor = Rectangle;
-    
-    Rectangle.prototype.draw = function () { ... };
-    Rectangle.redRectangle = function (width, height) { ... };
-
---
-
-# Classes
-
-    class Shape {
-        constructor(color) { ... }
-        draw() { ... }
-    }
-    
-    class Rectangle extends Shape {
-        constructor(color, width, height) {
-            super(color);
-            ...
-        }
-        draw() { ... }
-        static redRectangle(width, height) { ... }
-    }
-    
-Static methods are called the same way, `Rectangle.redRectangle(5,10);`.  The
-`prototype` is still there if you want to modify the class after defining it.
-
---
-
-# Getters/Setters
-
-    Object.defineProperty(Rectangle.prototype, "border", {
-        get: function () {
-            return this.thickness + " " + this.color;
-        },
-        set: function (value) {
-            // parse value and set data members
-        }
-    });
-
---
-
-# Getters/Setters
-
-    class Rectangle extends Shape {
-        ...
-        get border() {
-            return this.thickness + " " + this.color;
-        }
-        set border(value) {
-            // parse value and set data members
-        }
-        ...
-    }
-
---
-
-# MVC
-
-    var DocumentRow = Backbone.View.extend({
-        tagName: "li",
-        className: "document-row",
-        events: {
-            "click .icon":          "open",
-            "click .button.edit":   "openEditDialog",
-            "click .button.delete": "destroy"
-        },
-        initialize: function() {
-            this.listenTo(this.model, "change", this.render);
-        },
-        render: function() { ... }
-    });
-
---
-
-# MVC
-
-    class DocumentRow extends Backbone.View {
-        constructor() {
-            this.tagName = "li";
-            this.className = "document-row";
-            this.events = {
-                "click .icon":          "open",
-                "click .button.edit":   "openEditDialog",
-                "click .button.delete": "destroy"
-            };
-        }
-        initialize: function() {
-            this.listenTo(this.model, "change", this.render);
-        }
-        render: function() { ... }
-    };
-
--- 
-
-# Modules
-
---
-
-# Modules
-
---
-
-# Binding `this`
-
-    var numbers = [1,2,3,4,...];
-    var sum = numbers.reduce(function (total, number) {
-        return total + number;
-    });
-    
-    Calendar.prototype.showMonth = function (month) {
-        var self = this;
-        month.days.forEach(function (day) {
-            day.addEventListener("click", function () {
-                self.addAppointmentFor(day);
-            });
-        });
-    };
-
---
-
-# Binding `this`
-
-    var numbers = [1,2,3,4,...];
-    var sum = numbers.reduce((total, number) => total + number);
-    
-    Calendar.prototype.showMonth = function (month) {
-        month.days.forEach(day => {
-            day.addEventListener("click", () => {
-                this.addAppointMentFor(day);
-            });
-        });
-    };
-
--- 
-
-# Destructuring
-
-    var point = [1.5, -7, 23];
-    var [x, y, z] = point;
-    console.log("point @ (%f, %f, %f)", x, y, z);
-    
-    var range = [10, -5];
-    var [min, max] = range;
-    if (min > max) {
-        [max, min] = [min, max];
-    }
-    console.log("range = %o", range);
-
---
-
-# Rest paramters
-
-
---
-
-# Default parameters
-
-
---
-
-    
-    
-Arrow functions automatically bind `this` correctly.  No more `self = this;` or 
-`this.method.bind(this);` or `$.proxy(this.method,this);`.  Also, notice the 
-lack of `return` statements whent the `=>` points to a single expression.
+# Demo
 
 --
 
@@ -251,8 +71,53 @@ Browsers (by number of features implemented):
 Source: [Kangax ES6 Compatability table](http://kangax.github.io/compat-table/es6/)
 
 More info:
-https://status.modern.ie,
-https://www.chromestatus.com/features
+[modern.ie](https://status.modern.ie),
+[Chromium Dashboard](https://www.chromestatus.com/features)
+
+-- title
+
+# But I want it now!
+
+--
+
+# Transpilers
+
+- TypeScript (8%)
+- es6-shim (23%)
+- Closure Compiler (27%)
+- ES6 Transpiler (27%)
+- Traceur (60%)
+- 6to5 (77%)
+
+Source: [Kangax ES6 Compatability table](http://kangax.github.io/compat-table/es6/)
+
+6to5.org: [Build Systems](http://6to5.org/docs/using-6to5/#build-systems)
+
+--
+
+# 6to5 gotchas
+
+- output for classes could be more readable/performant<br>
+  __solution__: use the "loose: classes" option
+- some features require a polyfill (25 KB)<br>
+  __solution__: include regenerator and/or core-js custom build
+- helper functions added at the start of every file<br>
+  __solution__: use the "runtime: true" option and manually add runtime.js (2 KB) to your bundle
+- comments don't appear where they should in output code<br>
+  __solution__: run your doc generator on the ES6 source
+  
+--
+
+# What about...
+
+- linting?
+- your favorite minifier, bundler, etc.?
+- editor support?
+- testing?
+
+-- title
+
+# Questions
 
 -- sponsors
 
@@ -265,17 +130,3 @@ https://www.chromestatus.com/features
 ![Startup Calgary](img/sponsors/startup_calgary_logo.png)
 
 ![PetroFeed](img/sponsors/petrofeed_logo.png)
-
---
-
-# Last Month
-
-* Something awesome
-* More awesomeness
-
---
-
-# Next Month
-
-* Something awesome
-* More awesomeness

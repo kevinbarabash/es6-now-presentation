@@ -10,17 +10,19 @@ body {
   font-weight: 100;
   color: #333333;
   background: #FFFFFF;
+  font-size: 1.25em;
 }
 
 h1 {
   font-weight: 900;
   margin: 20px 0 20px 0;
+  font-size: 2.0em;
 }
 
 h2 {
   color: #AAAAAA;
   font-weight: 500;
-  font-size: 200%;
+  /*font-size: 100%;*/
   margin: 20px 0;
 }
 
@@ -152,11 +154,6 @@ ul {
   display: table-cell;
 }
 
-/*#slide-2 {*/
-  /*background: url('img/sponsors/assembly_logo.png') no-repeat center center fixed;*/
-  /*background-size: cover;*/
-/*}*/
-
 pre {
   font-size: 100%;
   background-color: rgb(226,226,226);
@@ -171,3 +168,25 @@ h1 code {
   background-color: transparent;
   border: none;
 }
+
+#slide-1 {
+  background-size: cover;
+  background-position: center;
+  background-image: url(img/backgrounds/calgary_beltline.jpg);
+}
+
+#slide-1 h1 {
+  background-color: rgba(255,255,255,0.5);
+  font-size: 200%;
+}
+
+#slide-1 .slide-content {
+  padding: 0;
+}
+
+/*#slide-10 {*/
+/*background-size:cover;*/
+/*background-position: center;*/
+/*background-image:url(./img/logo.svg);*/
+/*background-color: #222;*/
+/*}*/
