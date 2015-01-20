@@ -184,6 +184,14 @@ h1 code {
   padding: 0;
 }
 
+#slide-6 p {
+  text-align: center;
+}
+
+#slide-10 p {
+  text-align: center;
+}
+
 /*#slide-10 {*/
 /*background-size:cover;*/
 /*background-position: center;*/

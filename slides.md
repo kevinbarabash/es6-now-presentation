@@ -50,9 +50,11 @@ familiar with from other languages.  These include:
 - iterators, generators, promises
 - ...
 
--- title
+--
 
 # Demo
+
+<a href="http://kevinb7.github.io/es6-playground"><img src="img/es6-playground.png"></a>
 
 --
 
@@ -91,7 +93,11 @@ More info:
 
 Source: [Kangax ES6 Compatability table](http://kangax.github.io/compat-table/es6/)
 
-6to5.org: [Build Systems](http://6to5.org/docs/using-6to5/#build-systems)
+--
+
+# 6to5
+
+<a href="http://6to5.org"><img src="img/6to5homepage.png"></a>
 
 --
 
