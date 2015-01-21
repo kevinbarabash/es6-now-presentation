@@ -41,13 +41,11 @@ ES6 brings tonnes of exciting new features, some of which you may already be
 familiar with from other languages.  These include:
 
 - string templating, multi-line strings
-- default, rest paramters
+- default, rest paramters, destructuring assignment
 - arrow functions
 - new class syntax and modules
-- destructuring assignment
 - (weak)map, (weak)set
 - constants, block scoping via "let" keyword
-- iterators, generators, promises
 - ...
 
 --
@@ -120,6 +118,13 @@ Source: [Kangax ES6 Compatability table](http://kangax.github.io/compat-table/es
 - your favorite minifier, bundler, etc.?
 - editor support?
 - testing?
+- debugger? source maps
+
+--
+
+# Demo
+
+link: https://github.com/kevinb7/es6-browserify-example
 
 -- title
 
